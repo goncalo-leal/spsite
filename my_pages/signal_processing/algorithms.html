@@ -1,0 +1,139 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h1 class="m-0 text-dark" id="content_title">Algorithms</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-12">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href="#">BCI</a></li>
+                    <li class="breadcrumb-item active">Signal Processing</li>
+                </ol>
+            </div>
+        </div><!-- /.row -->
+        <hr>
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content-header -->            
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="card" id="list_card">
+            <div class="card-header ui-sortable-handle">
+                <h3 class="card-title">Algorithms</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body" style="display: block;">
+                <div class="form-group">
+                    <label for="search_algorithms">Search:</label>
+                    <input id="search_algorithms" type="text" class="form-control">
+                </div>
+                <table id="algorithms_table" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Algorithm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="cursor: pointer;" data-algorithm="algoritmo1">Algoritmo1</td>
+                        </tr>
+                        <tr>
+                            <td style="cursor: pointer;" data-algorithm="algoritmo1">Algoritmo2</td>
+                        </tr>
+                        <tr>
+                            <td style="cursor: pointer;" data-algorithm="algoritmo1">Algoritmo3</td>
+                        </tr>
+                        <tr>
+                            <td style="cursor: pointer;" data-algorithm="algoritmo1">Algoritmo4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->            
+        </div>
+
+        <div class="card" id="algorithm_card" style="display: none;">
+            <div class="card-header ui-sortable-handle">
+                <h3 class="card-title" id="algorithm_name"></h3>
+            </div>
+
+            <div class="card-body">
+                <!-- Todos os algoritmos devem ter uma div destas -->
+                <!-- Não esquecer mudar o id!! -->
+                <div id="algoritmo1" style="display: none;">
+                    <!-- Por o código dentro do pre -->
+                    <!-- Se o código não estiver encostado à esquerda fica mal -->
+                    <pre>
+while (input.hasNextLine()) {
+    String line = input.nextLine();
+    
+    if (line.split("\t").length == 3) {
+        String aux = line.split("\t")[2];
+        
+        if (cidades.get(aux) == null) {
+            cidades.put(aux, 1);
+        }
+        else {
+            cidades.put(aux, cidades.get(aux) + 1);
+        }
+        
+        voos.add(new Voo(line.split("\t")[0], line.split("\t")[1], aux, ""));					
+    }
+    else {
+        String aux = line.split("\t")[2];
+        
+        if (cidades.get(aux) == null) {
+            cidades.put(aux, 1);
+        }
+        else {
+            cidades.put(aux, cidades.get(aux) + 1);
+        }
+        
+        voos.add(new Voo(line.split("\t")[0], line.split("\t")[1], aux, line.split("\t")[3]));
+    }
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var table_algorithms;
+    $(function () {
+        table_algorithms = $("#algorithms_table").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "ordering": true,
+            "lengthChange": false,
+            "searching": true,
+            "dom": 'tp'
+        });
+    });
+
+    $("#search_algorithms").on("keyup", function(){
+        table_algorithms.search( this.value ).draw();
+    });
+
+    $("#algorithms_table td").click(function(){
+        div = $(this).data("algorithm");
+
+        $("#list_card").addClass("collapsed-card");
+        $("#list_card > .card-header > .card-tools > button > i").removeClass("fa-minus");
+        $("#list_card > .card-header > .card-tools > button > i").addClass("fa-plus");
+        $("#list_card > .card-body").hide();
+        $("#algorithm_name").text(table_algorithms.row( this ).data());
+        $("#algorithm_card").show();
+        $("#"+div).show();
+    });
+</script>

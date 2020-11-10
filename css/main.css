@@ -1,0 +1,11 @@
+.my_link{
+    cursor: pointer;
+}
+
+.main_div{
+    background-image: url(../img/logo.jpg);    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 100%;
+}
