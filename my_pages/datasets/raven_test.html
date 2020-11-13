@@ -20,6 +20,95 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
-        <pre>FALTA O CONTEÚDO</pre>
+        <p>Raven matrices tests have widespread practical use-as a measure of intelligence in the general population for both adults and children, for job applicants as a psychometric test, for applicants to the armed forces, and for assessing clinical (e.g. Autism) populations. In this study the Advanced Progressive Matrices (RAPM) with 48 problems were applied to two populations: 21 students of Design and Multimedia and 24 of students Engineering Informatics. EEG signals are registered while the participants perform the tasks of the test. The 48 problems that form the test are divided into two phases: the first 12 where the participant receive a feedback about his answer and the last 36 where no feedback is given. The score of the test is the number of correct answers of the second part. The figure 3 illustrates the time evolution and the relevant marks for each The signals were registered using Enobio 8 EEG recording headset and 8 channels: F3, F4, T7, C3, Cz, C4, T8 and Pz. And the relevant marks for the signal analysis are around</p>
+    
+        <ul>
+            <li>Problem display;</li>
+
+            <div class="text-center">
+                <figure>
+                    <img src="../../img/raven_signal_acquisition.jpg" alt="signal acquisition protocol" width=90%>
+                    <figcaption>Figure 1 - The signal acquisition protocol while participants answer the problems. The first 12 problems include the feedback while the last 36 do not. The red bars represent the time markers stored with the signals.</figcaption>
+                </figure>
+            </div>
+
+            <li>Possible solutions display;</li>
+            <li>Student answer;</li>
+            And with this marks are defined the following processing windows
+            <li>on the problem display [-75 500] ms.</li>
+            <li>on the possible solutions display [-75 500] ms.</li>
+            <li>on the student answer [-500 500] ms.</li>
+        </ul>
+
+        <h3>Feature extraction</h3>
+
+        <p>Two data sets are organized</p>
+        <ul>
+            <li>The pre-processing step comprises average signals of all trials of one participant considering the training and the testing phase. The data set is available for each participant.</li>
+            <li>For each participant each trial is processed and the features as described later are computed.</li>
+        </ul>
+
+        <h4>Time Features</h4>
+
+        <p>The chosen event-related potentials were P100 and P300. These were chosen because of attentional characteristics that have sometimes been attributed to the P100 potential, as well as the attentional and relationship that is known to exist between the P300 potential and cognitive activity.</p>
+
+        <p>The P100 and P300 re defined in the first two intervals (display and solution) and its latency and amplitude is stored. Only relevant channels were considered (see the data files).</p>
+
+        <h4>Frequency Features</h4>
+
+        <p>The energy of the characteristic bands are estimated in all defined windows. The energy (E) in the characteristic bands are used to compute other higher level features defined as energy ratios.</p>
+
+        <ul>
+            <li>Stress Index [4]:   
+                <img src="http://latex.codecogs.com/svg.latex?\frac{E_{\beta}}{E_{\alpha}}" border="0"/>
+            </li>
+
+            <li>Mental Fatigue [1], [5]:  
+                <img src="http://latex.codecogs.com/svg.latex?\frac{E_{\alpha} + E_{\theta}}{E_{\beta}}" border="0"/>
+            </li>
+
+            <li>Alpha Lateralization [2]:    
+                <img src="http://latex.codecogs.com/svg.latex?\frac{E_{\alpha, F_{3}} - E_{\alpha, F_{4}}} {E_{\alpha, F_{3}} - E_{\alpha, F_{4}}}" border="0"/>
+            </li>
+
+            <li>Immersion Index [3]:  
+                <img src="http://latex.codecogs.com/svg.latex?\frac{E_{\theta} }{E_{\alpha}}" border="0"/>
+            </li>
+        </ul>
+
+        <p>Several channels were considered (see data set).</p>
+
+        <h3>References</h3>
+
+        <p>
+            <a target="_blank" href="https://www.hilarispublisher.com/open-access/eegbased-analysis-for-learning-through-virtual-reality-environment-2155-6210-1000249.pdf">
+                [1] Sayed Ahmed Alwedaie, Habib Al Khabbaz, Sayed Redha Hadi, and Riyadh Al Hakim. EEGBased Analysis for Learning through Virtual Reality Environment. Journal of Biosensors &Bioelectronics, 09(01):1–6, feb 2018.
+            </a>
+        </p>
+
+        <p>
+            <a target="_blank" href="https://www.researchgate.net/publication/281286818_Identifying_Problem_Solving_Strategies_for_Learning_Styles_in_Engineering_Students_Subjected_to_Intelligence_Test_and_EEG_Monitoring">
+                [2] Felisa M. Cordova, M. Hernan Dıaz, Fernando Cifuentes, Lucio Canete, and Fredi Palominos. Identifying Problem Solving Strategies for Learning Styles in Engineering Students Subjected to Intelligence Test and EEG Monitoring. Procedia Computer Science, 55:18–27, jan 2015.
+            </a>
+        </p>
+
+        <p>
+            <a target="_blank" href="https://www.researchgate.net/publication/288686068_Analysis_of_Game_Immersion_using_EEG_signal_for_Computer_Smart_Interface">
+                [3] Yunhan Ga, Taejin Choi, and Gilwon Yoon. Analysis of Game Immersion using EEG signal for Computer Smart Interface. Journal of Sensor Science and Technology, 24(6):392–397, nov 2015.
+            </a>
+        </p>
+
+        <p>
+            <a target="_blank" href="https://www.researchgate.net/publication/224165999_Evaluation_of_human_stress_using_EEG_Power_Spectrum">
+                [4] N H A Hamid, N Sulaiman, S AMAris, Z H Murat, andMN Taib. Evaluation of human stress using EEG Power Spectrum. In 2010 6th International Colloquium on Signal Processing &its Applications, pages 1–4. IEEE, may 2010.
+            </a>
+        </p>
+
+        <p>
+            <a target="_blank" href="https://www.researchgate.net/publication/223481857_Using_EEG_spectral_components_to_assess_algorithms_for_detecting_fatigue_Part_1">
+                [5] Budi Thomas Jap, Sara Lal, Peter Fischer, and Evangelos Bekiaris. Using EEG spectral components to assess algorithms for detecting fatigue. Expert Systems with Applications, 36(2):2352–2359, mar 2009.
+            </a>
+        </p>
+
     </div>
 </section>

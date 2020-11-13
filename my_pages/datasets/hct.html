@@ -20,6 +20,58 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
-        <pre>FALTA O CONTEÚDO</pre>
+        <h3>The HCT test: looking for biomarkers on the signals</h3>
+
+        <p>The Halstead Category Test (HCT) test, as illustrated in the Figure 1, consists of geometric figures or designs (stimulus), and the participant is asked to indicate a number between 1 and 4 as it is suggested by the stimulus. After every response, visual feedback on whether the response was correct or incorrect is provided. The feedback helps participants to adjust their strategy to answer to the next stimulus. The Halstead Category Test is a popular measure of abstraction, concept formation, and logical analysis skills. The test is applied since long clinically and traditionally, the test provides only an overall error score indicative of global frontal brain impairment.</p>
+
+        <div class="text-center">
+            <figure>
+                <img src="../../img/hct_signal_acquisition.jpg" alt="signal acquisition protocol" height=400vh>
+                <figcaption>Figure 1 - The signal acquisition protocol while participants answer the questions.</figcaption>
+            </figure>
+        </div>
+
+        <p>The HCT test was applied to 58 participants and the EEG signals were recorded. The signals were registered according to the 10 − 20 system in 26 scalp positions (called channels in the data set). The signals were segmented around the participant's responses as illustrated in the Figure 1. For each trial an average signal was calculated with the signals of all participants. Two different strategies to calculate averages were followed:</p>
+        
+        <ul>
+            <li>A trial template signal as an average of the signals of all participants.</li>
+            <li>A template signal of the wrong answers. In that case the average of the signals of participants which give incorrect answers.</li>
+            <li>A template signal of the right answers.In that case the average of the signals of participantswhich give correct answers.</li>
+        </ul>
+
+        <p>Note that the average signals are in the first case obtained with 58 signals while the number of signals for wrong or right templates is variable.It can also happen that wrong template is not available.</p>
+        
+        <h3>Database of features</h3>
+
+        <p>The feature extraction block measures different events of the template of the different scalp signals. Two types of events were considered: time and frequency.</p>
+
+        <p>Time events: event related potentials.</p>
+
+        <p>The detection of characteristic evoked potentials which are peaks that occur in certain defined windows synchronized with</p>
+
+        <ul>
+            <li>response: ERN (error related negativity) defined in a window and characterized by the latency and the negative peak value.</li>
+            <li>feedback: FRN (feedback error negativity) defined in a window of and characterized by the latency and the negative peak value. And P500 defined in a window defined by its latency and positive peak value.</li>
+        </ul>
+
+        <p>The Figure 2 illustrates the described events marked on the filtered version of the signal.</p>
+
+        <div class="text-center">
+            <figure>
+                <img src="../../img/hct_plot.jpg" alt="signal acquisition protocol" height=400vh>
+                <figcaption>Figure 2 - The features stored in database. The first time events is the ERN and occurs after the participant response (t=0) and its time stamp (latency) and amplitude. After the feedback (t=1500) is the FRN and P500</figcaption>
+            </figure>
+        </div>
+
+        <h3>Frequency events: event related potentials</h3>
+
+        <p>The energy of the characteristic bands, or EEG rhythms, was calculated into 3 segments of 200ms after the response and feedback. Two segments before the response were also included and can be used as possible reference measures. The characteristic bands were: theta, alpha, beta and gamma.</p>
+
+        <p>The energy of the reference interval can be used to estimate the increase or decrease of energy of one of the rhythms divided by the energy of reference <br> <div class="text-center"><img src="http://latex.codecogs.com/svg.latex?\Delta=\frac{E_{I}-E_{R}}{E_{R}}" border="0"/></div> <br> where <img src="http://latex.codecogs.com/svg.latex?E_{I}" border="0"/> is the energy estimated on I interval and <img src="http://latex.codecogs.com/svg.latex?E_{R}" border="0"/> is the energy of the interval. In literature different strategies to define an interval of reference are discussed. The data set provides two intervals of 200ms defined before the response. Note that a positive value indicates an increase of the activity relative to the reference interval while the negative value indicates the opposite.</p>
+
+        <div class="text-center p-2">
+            <a class="btn btn-primary" style="color: white;" href="mailto:ateixeira@ua.pt"><i class="fa fa-download"></i> Download Datasets</a>
+        </div>
+
     </div>
 </section>
